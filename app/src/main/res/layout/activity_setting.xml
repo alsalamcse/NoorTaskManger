@@ -7,33 +7,57 @@
     tools:context=".Setting">
 
     <Switch
-        android:id="@+id/switch"
+        android:id="@+id/sw"
         android:layout_width="162dp"
-        android:layout_height="110dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="81dp"
+        android:layout_marginBottom="42dp"
         android:text="sound"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="80dp" />
+        app:layout_constraintBottom_toTopOf="@+id/sb2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
         android:id="@+id/sb2"
-        android:layout_width="231dp"
-        android:layout_height="53dp"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="233dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginRight="77dp"
+        android:layout_marginBottom="446dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvSiz"
+        app:layout_constraintTop_toBottomOf="@+id/switch" />
 
     <TextView
-        android:id="@+id/tv1"
+        android:id="@+id/tvSiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="461dp"
         android:text="front size"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="251dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sb2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/btnSave2"
+        android:id="@+id/btnS2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginBottom="297dp"
         android:text="save"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="386dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/sb2"
+        app:layout_constraintTop_toBottomOf="@+id/sb2"
+        app:layout_constraintVertical_bias="0.376" />
 </androidx.constraintlayout.widget.ConstraintLayout>

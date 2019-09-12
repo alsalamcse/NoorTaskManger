@@ -9,7 +9,7 @@ import android.widget.EditText;
 public class signUp extends AppCompatActivity
 {
     private EditText edtName,edtFName,edtphone,edtmail,edtPass,edtRePass;
-    private Button btnSave2;
+    private Button btnS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,6 @@ public class signUp extends AppCompatActivity
         edtmail=(EditText)findViewById(R.id.edtEmail);
         edtPass=(EditText)findViewById(R.id.edtPass);
         edtRePass=(EditText)findViewById(R.id.edtRePass);
-        btnSave2=(Button)findViewById(R.id.btnSave2);
+        btnS=(Button)findViewById(R.id.btnS);
     }
 }
