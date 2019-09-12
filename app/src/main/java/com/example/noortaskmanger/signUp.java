@@ -15,9 +15,12 @@ public class signUp extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        edtFName=findViewById(R.id.edtFName);
-        edtName=findViewById(R.id.edtName);
-        edtphone=findViewById(R.id.edtphone);
-        
+        edtFName=(EditText)findViewById(R.id.edtFName);
+        edtName=(EditText)findViewById(R.id.edtName);
+        edtphone=(EditText)findViewById(R.id.edtphone);
+        edtmail=(EditText)findViewById(R.id.edtEmail);
+        edtPass=(EditText)findViewById(R.id.edtPass);
+        edtRePass=(EditText)findViewById(R.id.edtRePass);
+        Button=(Button)findViewById(R.id.btnSave2);
     }
 }

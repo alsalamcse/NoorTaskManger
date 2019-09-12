@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="@+id/edtPassword" />
 
     <EditText
-        android:id="@+id/edtPassword"
+        android:id="@+id/edtPass"
         android:layout_width="252dp"
         android:layout_height="52dp"
         android:layout_marginTop="80dp"
