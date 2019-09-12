@@ -61,7 +61,6 @@
         android:ems="10"
         android:hint="reEnter Password"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/edtPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintVertical_bias="1.0" />
