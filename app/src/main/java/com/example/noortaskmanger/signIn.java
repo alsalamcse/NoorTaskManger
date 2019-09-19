@@ -19,7 +19,7 @@ public class signIn extends AppCompatActivity
         setContentView(R.layout.activity_sign_in);
 
         edtEmail=(EditText)findViewById(R.id.edtEmail);
-        edtPassword=(EditText)findViewById(R.id.edtPassword);
+        //edtPassword=(EditText)findViewById(R.id.edtPassword);
         imageSign=(ImageView)findViewById(R.id.imageSign);
         btnIn=(Button)findViewById(R.id.btnIn);
         btnUp=(Button)findViewById(R.id.btnUp);
