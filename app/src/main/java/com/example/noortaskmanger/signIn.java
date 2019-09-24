@@ -1,5 +1,6 @@
 package com.example.noortaskmanger;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.Image;
@@ -9,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class signIn extends AppCompatActivity
@@ -61,7 +65,7 @@ public class signIn extends AppCompatActivity
         }
         if(isOk)
         {
-
+         signIn(email,passw);
         }
     }
     public boolean isValidEmailAddress(String email) {
@@ -70,9 +74,24 @@ public class signIn extends AppCompatActivity
         java.util.regex.Matcher m = p.matcher(email);
         return m.matches();
     }
-    private void signIn(String email,String passw)
+    private void signIn(final String email, String passw)
     {
         FirebaseAuth auth=FirebaseAuth.getInstance();
-        auth.signInWithEmailAndPassword(email,passw);
+        auth.signInWithEmailAndPassword(email,passw).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful())
+                {
+                    //Todo go to main screen (all task activity)
+                }
+                else
+                    {
+                        edtEmail.setError("Email or passwod is wrong");
 
-}
+                    }
+
+
+            }
+        });
+
+}}
