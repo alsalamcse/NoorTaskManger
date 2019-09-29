@@ -1,11 +1,18 @@
 package com.example.noortaskmanger;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class signUp extends AppCompatActivity
 {
@@ -16,20 +23,22 @@ public class signUp extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        edtFName=findViewById(R.id.edtFName);
-        edtName=findViewById(R.id.edtName);
-        edtphone=(EditText)findViewById(R.id.edtphone);
-        edtmail=(EditText)findViewById(R.id.edtEmail);
-        edtPass=(EditText)findViewById(R.id.edtPass);
-        edtRePass=(EditText)findViewById(R.id.edtRePass);
-        btnS=(Button)findViewById(R.id.btnS);
+        edtFName = findViewById(R.id.edtFName);
+        edtName = findViewById(R.id.edtName);
+        edtphone = (EditText) findViewById(R.id.edtphone);
+        edtmail = (EditText) findViewById(R.id.edtEmail);
+        edtPass = (EditText) findViewById(R.id.edtPass);
+        edtRePass = (EditText) findViewById(R.id.edtRePass);
+        btnS = (Button) findViewById(R.id.btnS);
 
         btnS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 datahandler();
             }
-    }};
+        });
+    }
+
 
     private void datahandler()
     {
@@ -57,7 +66,28 @@ public class signUp extends AppCompatActivity
         }
         if (isOk)
         {
+            createAccount(email,pass,repass,first,phone);
             //create Accoint (email,pass)
         }
     }
+
+    private void createAccount(String email, String pass, String repass, final String first, String phone) {
+        FirebaseAuth auth=FirebaseAuth.getInstance();
+        auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful())
+                {
+                    finish();;
+                }
+                else
+                {
+                    edtmail.setError("Sign up failed");
+                }
+            }
+        });
+    }
+
+
 }
+
