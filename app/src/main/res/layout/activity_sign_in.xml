@@ -21,9 +21,11 @@
 
     <EditText
         android:id="@+id/edtEmail"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="299dp"
+        android:layout_width="246dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginBottom="256dp"
         android:ems="10"
         android:hint="email "
         android:inputType="textPersonName"
@@ -48,19 +50,21 @@
         android:id="@+id/btnIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
         android:text="Sign in"
         app:layout_constraintBaseline_toBaselineOf="@+id/btnUp"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/edtPass" />
 
     <Button
         android:id="@+id/btnUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="137dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="116dp"
         android:text="sign up"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/btnIn" />
+        app:layout_constraintEnd_toEndOf="@+id/edtPass" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.example.noortaskmanger;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,8 @@ public class signIn extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+
+
         edtEmail=(EditText)findViewById(R.id.edtEmail);
         //edtPassword=(EditText)findViewById(R.id.edtPassword);
         imageSign=(ImageView)findViewById(R.id.imageSign);
@@ -32,12 +35,12 @@ public class signIn extends AppCompatActivity
         btnUp=(Button)findViewById(R.id.btnUp);
 
         btnIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dataHandler();
-            }
-        });
+    @Override
+    public void onClick(View v) {
+        dataHandler();
     }
+});
+}
 
     private void dataHandler()
     {
@@ -82,11 +85,14 @@ public class signIn extends AppCompatActivity
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
-                    //Todo go to main screen (all task activity)
+                    //todo go to main screen (all task activity)
+                    Intent i= new Intent(getApplication(),TempAllTaskActivity.class);
+                    startActivity(i);
                 }
                 else
                     {
                         edtEmail.setError("Email or passwod is wrong");
+
 
                     }
 
