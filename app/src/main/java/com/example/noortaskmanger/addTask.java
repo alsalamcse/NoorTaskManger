@@ -9,6 +9,13 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.security.Key;
+
+import Data.myTask;
+
 public class addTask extends AppCompatActivity {
     private EditText edttittle,edtsubject;
     private SeekBar skpro;
@@ -53,11 +60,27 @@ public class addTask extends AppCompatActivity {
         {
             edtsubject.setError("subject length error");
         }
-        if(isOk)
+        if (isOk)
         {
+            myTask t=new myTask();
+            t.setTittle(tittle);
+            createTask(t);
             createTask(tittle,subject,seeekBar);
+
         }
-    }
+
+        }
+        private void createTask(myTask t)
+        {
+            FirebaseDatabase database=FirebaseDatabase.getInstance();
+            DatabaseReference reference = database.getReference();
+            String key = reference.child("tasks").push().getKey();
+            reference.child("tasks").child(key).setValue(t);
+
+
+
+        }
+
 
     private void createTask(String tittle, String subject, int seeekBar)
     {
