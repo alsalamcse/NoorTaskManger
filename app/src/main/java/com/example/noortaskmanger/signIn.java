@@ -34,7 +34,15 @@ public class signIn extends AppCompatActivity
         btnIn=(Button)findViewById(R.id.btnIn);
         btnUp=(Button)findViewById(R.id.btnUp);
 
+        btnUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+             Intent i=new Intent(getApplicationContext(),signUp.class);
+             startActivity(i);
 
+            }
+        });
         btnIn.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
@@ -48,21 +56,21 @@ public class signIn extends AppCompatActivity
         String email=edtEmail.getText().toString();
         String passw=edtPassword.getText().toString();
         boolean isOk=true;
-//        if(email.length()<4)
-//        {
-//            edtEmail.setError("Email length error");
-//            isOk=false;
-//        }
-//        if(email.indexOf("@")<0 || email.indexOf(".")<0)
-//        {
-////            edtEmail.setError("email wrong format");
-//////            isOk=false;
-////        }
-        if ((isValidEmailAddress(email)==false))
+        if(email.length()<4)
         {
-            edtEmail.setError("Invalid Email");
+            edtEmail.setError("Email length error");
             isOk=false;
         }
+        if(email.indexOf("@")<0 || email.indexOf(".")<0)
+        {
+            edtEmail.setError("email wrong format");
+            isOk=false;
+        }
+        //if ((isValidEmailAddress(email)==false))
+        //{
+           // edtEmail.setError("Invalid Email");
+           // isOk=false;
+      //  }
         if(passw.length()<8)
         {  edtPassword.setError("password length is Error");
             isOk=false;
