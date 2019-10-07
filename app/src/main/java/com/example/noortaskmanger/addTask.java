@@ -1,5 +1,6 @@
 package com.example.noortaskmanger;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -8,7 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -75,7 +79,23 @@ public class addTask extends AppCompatActivity {
             FirebaseDatabase database=FirebaseDatabase.getInstance();
             DatabaseReference reference = database.getReference();
             String key = reference.child("tasks").push().getKey();
-            reference.child("tasks").child(key).setValue(t);
+            reference.child("tasks").child(key).setValue(t).addOnCompleteListener(addTask.this, new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task)
+                {
+                    if (task.isSuccessful())
+                    {
+                    Toast.makeText(addTask.this, "add successful", Toast.LENGTH_SHORT).show();
+                     finish();
+                }
+                    else
+                        {
+                            Toast.makeText(addTask.this, "add failed"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            task.getException().printStackTrace();
+                    }
+                }
+
+            });
 
 
 
@@ -86,3 +106,4 @@ public class addTask extends AppCompatActivity {
     {
     }
 }
+
