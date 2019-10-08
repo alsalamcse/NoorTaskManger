@@ -29,8 +29,8 @@ public class signIn extends AppCompatActivity
 
 
         edtEmail=(EditText)findViewById(R.id.edtEmail);
-        //edtPassword=(EditText)findViewById(R.id.edtPassword);
-        imageSign=(ImageView)findViewById(R.id.imageSign);
+        edtPassword=findViewById(R.id.edtPassword) ;
+    imageSign=(ImageView)findViewById(R.id.imageSign);
         btnIn=(Button)findViewById(R.id.btnIn);
         btnUp=(Button)findViewById(R.id.btnUp);
 

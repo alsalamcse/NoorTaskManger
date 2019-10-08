@@ -3,7 +3,6 @@ package com.example.noortaskmanger;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class signUp extends AppCompatActivity
 {
-    private EditText edtName,edtFName,edtphone,edtmail,edtPass,edtRePass;
+    private EditText edtName,edtFName,edtphone,edtEmail,edtPass,edtRePass;
     private Button btnS;
 
     @Override
@@ -28,8 +27,8 @@ public class signUp extends AppCompatActivity
         edtFName = findViewById(R.id.edtFName);
         edtName = findViewById(R.id.edtName);
         edtphone = (EditText) findViewById(R.id.edtphone);
-        edtmail = (EditText) findViewById(R.id.edtEmail);
-        edtPass = (EditText) findViewById(R.id.edtPass);
+        edtEmail = (EditText) findViewById(R.id.edtEmail);
+        edtPass = (EditText) findViewById(R.id.edtPassword);
         edtRePass = (EditText) findViewById(R.id.edtRePass);
         btnS = (Button) findViewById(R.id.btnS);
 
@@ -44,12 +43,12 @@ public class signUp extends AppCompatActivity
                 String first = edtFName.getText().toString();
                 String Name = edtName.getText().toString();
                 String phone = edtphone.getText().toString();
-                String email = edtmail.getText().toString();
+                String email = edtEmail.getText().toString();
                 String pass = edtPass.getText().toString();
                 String repass = edtRePass.getText().toString();
                 boolean isOk = true;
                 if (email.length() < 4 || email.indexOf('@') < 0 || email.indexOf('.') < 0) {
-                    edtmail.setError(("wrong email"));
+                    edtEmail.setError(("wrong email"));
                     isOk = false;
                 }
                 if (pass.length() < 8 || repass.equals(pass) == false) {
@@ -89,7 +88,7 @@ public class signUp extends AppCompatActivity
                 }
                 else
                 {
-                    edtmail.setError("Sign up failed");
+                    edtEmail.setError("Sign up failed");
                 }
             }
         });
