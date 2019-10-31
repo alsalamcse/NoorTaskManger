@@ -51,7 +51,7 @@ public class signIn extends AppCompatActivity
 });
 }
 
-    private void dataHandler()
+    private void dataHandler()//
     {
         String email=edtEmail.getText().toString();
         String passw=edtPassword.getText().toString();

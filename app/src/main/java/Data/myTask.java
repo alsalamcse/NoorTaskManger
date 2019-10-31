@@ -4,9 +4,18 @@ public class myTask
 {
     private String key,tittle,subject;
     private int important;
+    private String owner;
 
     public String getKey() {
         return key;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public void setKey(String key) {
